@@ -17,8 +17,7 @@ class UsersHasPermissions extends Migration
         Schema::create('users_has_permissions', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('permission_id');
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string("status")->default("");
             $table->timestamps();
             $table->softDeletes();
         });

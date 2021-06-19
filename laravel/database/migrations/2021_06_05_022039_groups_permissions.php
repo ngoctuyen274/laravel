@@ -18,7 +18,6 @@ class GroupsPermissions extends Migration
             $table->integer("group_id");
             $table->primary(array("permission_id","group_id"));
             $table->string('status')->default("");
-            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

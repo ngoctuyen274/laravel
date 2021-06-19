@@ -16,8 +16,7 @@ class Permissions extends Migration
         Schema::create('permissions', function (Blueprint $table) {
             $table->increments('permission_id');
             $table->string('permission_name',55);
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',55)->default("");
             $table->timestamps();
             $table->softDeletes();
         });

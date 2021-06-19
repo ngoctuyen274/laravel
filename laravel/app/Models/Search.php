@@ -7,6 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Search extends Model
 {
-    protected $table = 'search';
-    // use HasFactory;
+    use HasFactory;
 }

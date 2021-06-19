@@ -1,61 +1,49 @@
-@extends('template.layout')
+@extends('layouts.layout')
+@section('title')
+ Search - Trainers
+@endsection
+@section('content')
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Search</h1>
+    </div>
+    <div class="container ">
+        <div class="mx-auto" style="width:50%">
+            <form action="{{ route('search')}}" action='get'>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="k" aria-describedby="emailHelp" placeholder="Enter keyword..">
+                </div>
+                </form>
+        </div>
 
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Navbar</a>
-        <form class="form-inline" action="/search" method="GET">
-            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
-    @isset($name)
-        <h1 class="display-4" style="text-align: center">Trainer</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Company Id</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($trainers as $item)
+        <div class="py-5">
+            @isset($key)
+                <h2> Search result for "{{ $key }}" </h2>
+                <table class="table table-dark">
+                <thead>
                     <tr>
-                        <th scope="row">{!! $item->trainer_id !!}</th>
-                        <th scope="row">{!! $item->trainer_name !!}</th>
-                        <th scope="row">{!! $item->company_id !!}</th>
-                        <th scope="row">{!! $item->trainer_email !!}</th>
-                        <th scope="row">{!! $item->trainer_phone !!}</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Trainer Name</th>
+                    <th scope="col">Trainer Email</th>
+                    <th scope="col">Trainer Phone</th>
+                    <th scope="col">Company Id</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{-- {{ $trainers->links() }} --}}
-        {{ $trainers->withQueryString()->links() }}
-        @include('template.footer')
-    @endisset
-
-    
-
-    <!-- Bootstrap core JavaScript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script>
-        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
-
-    </script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script>
-        Holder.addTheme('thumb', {
-            bg: '#55595c',
-            fg: '#eceeef',
-            text: 'Thumbnail'
-        });
-
-    </script>
+                </thead>
+                <tbody>
+                    @foreach ($result as $item)
+                    <tr>
+                    <th scope="row">{!! $item->trainer_id !!}</th>
+                    <td>{!! $item->trainer_name !!}</td>
+                    <td>{!! $item->trainer_email !!}</td>
+                    <td>{!! $item->trainer_phone !!}</td>
+                    <td>{!! $item->company_id !!}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
+                @if(method_exists($result,'render'))
+                {!! $result->render() !!}
+                @endisset
+            @endisset
+        </div>
+    </div>
+@endsection

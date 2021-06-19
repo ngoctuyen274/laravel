@@ -17,8 +17,7 @@ class Subjects extends Migration
             $table->id('subject_id');
             $table->string('subject_name',55);
             $table->integer('class_id');
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',255);
             $table->timestamps();
             $table->softDeletes();
         });

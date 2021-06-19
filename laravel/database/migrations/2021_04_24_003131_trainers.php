@@ -18,8 +18,7 @@ class Trainers extends Migration
             $table->integer('user_id')->primary();
             $table->integer('company_id');
             $table->integer('is_leader')->default(0);
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string("status")->default("");
             $table->timestamps();
             $table->softDeletes();
         });

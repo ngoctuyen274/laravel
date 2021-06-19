@@ -17,9 +17,8 @@ class CategoriesHasCompanies extends Migration
         Schema::create('categories_has_companies', function (Blueprint $table) {
             $table->integer("category_id")->unsigned();
             $table->integer("companies_id")->unsigned();
+            $table->string("status")->default("");
             $table->primary(["category_id", "companies_id"]);
-            $table->string('status')->default("");
-            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

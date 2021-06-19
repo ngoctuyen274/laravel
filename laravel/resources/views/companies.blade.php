@@ -1,61 +1,80 @@
-@extends('template.layout')
-
-@include('template.header')
-
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Companies</h1>
-    </div>
-
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
+@extends('layouts.layout')
+@section('title')
+ List - Companies
+@endsection
+@section('content')
+{{-- content --}}
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+          <h1 class="display-4">List of companies</h1>
+        </div>
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Web</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Phone</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($companies as $item)
-                    <tr>
-                        <th scope="row">{!! $item->company_id !!}</th>
-                        <th scope="row">{!! $item->company_name !!}</th>
-                        <th scope="row">{!! $item->company_web !!}</th>
-                        <th scope="row">{!! $item->company_address !!}</th>
-                        <th scope="row">{!! $item->company_code !!}</th>
-                        <th scope="row">{!! $item->company_phone !!}</th>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{ $companies->links() }}
-        
-        @include('template.footer') 
-    </div>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Company Web</th>
+                    <th scope="col">Company Address</th>
+                    <th scope="col">Company Code</th>
+                    <th scope="col">Company Phone</th>
+                    <th scope="col">Trainer Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($companies as $item)
 
+                  <tr>
+                    <th scope="row">{!! $item->company_id !!}</th>
+                    <td>{!! $item->company_name !!}</td>
+                    <td>{!! $item->company_web !!}</td>
+                    <td>{!! $item->company_address !!}</td>
+                    <td>{!! $item->company_code !!}</td>
+                    <td>{!! $item->company_phone !!}</td>
+                    <td>{!! $item->getCompaniesRelation->trainer_name!!}</td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+              {{-- pagination control --}}
+              {!! $companies->render() !!}
 
-    <!-- Bootstrap core JavaScript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script>
-        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+          <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+              <div class="col-12 col-md">
+                <img class="mb-2" src="/docs/4.6/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+                <small class="d-block mb-3 text-muted">© 2017-2021</small>
+              </div>
+              <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                  <li><a class="text-muted" href="#">Cool stuff</a></li>
+                  <li><a class="text-muted" href="#">Random feature</a></li>
+                  <li><a class="text-muted" href="#">Team feature</a></li>
+                  <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                  <li><a class="text-muted" href="#">Another one</a></li>
+                  <li><a class="text-muted" href="#">Last time</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                  <li><a class="text-muted" href="#">Resource</a></li>
+                  <li><a class="text-muted" href="#">Resource name</a></li>
+                  <li><a class="text-muted" href="#">Another resource</a></li>
+                  <li><a class="text-muted" href="#">Final resource</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                  <li><a class="text-muted" href="#">Team</a></li>
+                  <li><a class="text-muted" href="#">Locations</a></li>
+                  <li><a class="text-muted" href="#">Privacy</a></li>
+                  <li><a class="text-muted" href="#">Terms</a></li>
+                </ul>
+              </div>
+            </div>
+          </footer>
+        </div>
 
-    </script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script>
-        Holder.addTheme('thumb', {
-            bg: '#55595c',
-            fg: '#eceeef',
-            text: 'Thumbnail'
-        });
-
-    </script>
-
+@endsection

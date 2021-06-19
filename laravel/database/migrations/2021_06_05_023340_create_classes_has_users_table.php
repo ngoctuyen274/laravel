@@ -16,8 +16,7 @@ class CreateClassesHasUsersTable extends Migration
         Schema::create('classes_has_users', function (Blueprint $table) {
             $table->id('user_id');
             $table->integer('class_id');
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',55);
             $table->timestamps();
             $table->softDeletes();
         });

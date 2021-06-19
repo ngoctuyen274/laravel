@@ -32,8 +32,7 @@ class DatabaseSeeder extends Seeder
             DiarySeeder::class,
             CourseSeeder::class,
             ClassSeeder::class,
-            ClassHasUserSeeder::class,
-            DiaryContentSeeder::class
+            ClassHasUserSeeder::class
         ]);
     }
 }

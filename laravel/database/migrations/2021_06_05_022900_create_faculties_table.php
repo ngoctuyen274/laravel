@@ -18,8 +18,7 @@ class CreateFacultiesTable extends Migration
             $table->string('faculty_name',55);
             $table->integer('user_id');
             $table->integer('class_id');
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',55);
             $table->timestamps();
             $table->softDeletes();
             // $table->primary(array('user_id', 'class_id'));

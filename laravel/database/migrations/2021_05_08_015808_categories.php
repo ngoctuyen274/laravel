@@ -18,7 +18,6 @@ class Categories extends Migration
             $table->increments('category_id')->nullable(false);
             $table->string('category_name');
             $table->string('status')->default("");
-            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

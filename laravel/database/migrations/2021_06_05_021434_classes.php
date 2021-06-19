@@ -19,8 +19,7 @@ class Classes extends Migration
             $table->integer('teacher_id');
             $table->integer('course_id');
             $table->integer('faculty_id');
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',255);
             $table->timestamps();
             $table->softDeletes();
         });

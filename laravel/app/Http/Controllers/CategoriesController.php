@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Categories;
-use App\Models\Company;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
+
 
 class CategoriesController extends Controller
 {
-    public function categories()
-    {
-        $obj = new Categories();
-        $categories = $obj->paginate(15);
-        return view('categories', ['categories' => $categories]);
+    //
+    function index(){
+        $categoriesModel = new Categories();
+        $categories = $categoriesModel->getAllCategories();
+        return view('categories',[
+            'categories' => $categories
+        ]);
+    }
+
+    function detail($name){
+        echo $name;
     }
 }

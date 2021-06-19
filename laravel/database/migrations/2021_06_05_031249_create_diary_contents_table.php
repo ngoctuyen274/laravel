@@ -22,8 +22,7 @@ class CreateDiaryContentsTable extends Migration
             $table->string('diarycontent_teacher_comment');
             $table->string('diarycontent_trainer_comment');
             $table->integer('week_id');
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',55);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -14,16 +14,9 @@ class UserTypeSeeder extends Seeder
      */
     public function run()
     {
-        // $queryInsert='insert into user_types values (null,?,?,?,?,?);';
-        // for ($i=0; $i < 10; $i++) { 
-        //     DB::insert($queryInsert,["student","status",null,null,null]);
-        // }
-
-        for($i = 0; $i < 10; $i++){
-            DB::table('user_types')->insert([
-                'usertype_name' => "student",
-            ]);
-
+        $queryInsert='insert into user_types values (null,?,?,?,?,?);';
+        for ($i=0; $i < 10; $i++) { 
+            DB::insert($queryInsert,["student","status",null,null,null]);
         }
     }
 }

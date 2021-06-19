@@ -20,8 +20,7 @@ class CreateWeeksTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('diary_id',false);
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',55);
             $table->timestamps();
             $table->softDeletes();
         });

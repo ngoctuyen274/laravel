@@ -19,8 +19,7 @@ class Courses extends Migration
             $table->integer('course_semester');
             $table->integer('course_year');
             $table->integer('subject_id');
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',255);
             $table->timestamps();
             $table->softDeletes();
         });

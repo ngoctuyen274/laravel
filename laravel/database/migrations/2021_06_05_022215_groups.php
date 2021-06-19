@@ -16,8 +16,7 @@ class Groups extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('group_id');
             $table->string('group_name',55);
-            $table->string('status')->default("");
-            $table->rememberToken();
+            $table->string('status',55)->default("");
             $table->timestamps();
             $table->softDeletes();
         });
