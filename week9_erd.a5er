@@ -104,8 +104,8 @@ LName=trainers
 Comment=
 TableOption=
 Page=MAIN
-Left=3150
-Top=250
+Left=3300
+Top=200
 Field="trainer_id","trainer_id","",,0,"","",$FFFFFFFF,""
 Field="is_leader","is_leader","",,,"","",$FFFFFFFF,""
 Field="company_id","company_id","",,,"","",$FFFFFFFF,""
@@ -114,7 +114,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20210605082324
-Position="MAIN",3150,250,579,604
+Position="MAIN",3300,200,579,604
 ZOrder=7
 
 [Entity]
